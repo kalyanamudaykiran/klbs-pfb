@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programming for Business - 26MB5207E</title>
+<style>
+:root { --bg:#0F172A; --panel:#1E293B; --line:#2B3A55; --ink:#E2E8F0; --dim:#94A3B8; --amber:#F5B041; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { min-height:100%; }
+body { min-height:100vh; background:var(--bg); color:var(--ink); font-family:Arial,"Helvetica Neue",sans-serif;
+  display:flex; flex-direction:column; overflow-y:auto; padding:24px 0; }
+.wrap { max-width:1100px; width:92%; margin:auto; }
+.kick0 { color:var(--amber); font-weight:700; letter-spacing:3px; font-size:13px; }
+h1 { font-size:40px; line-height:1.15; margin:10px 0 6px; }
+.sub { color:var(--dim); font-size:16px; margin-bottom:22px; line-height:1.5; }
+
+/* 1 - 2 - 2 - 2 Grid */
+.grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+
+.card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 22px;
+  display:flex; flex-direction:column; justify-content:space-between; min-height:115px; }
+.card.intro { grid-column:span 2; flex-direction:row; align-items:center; gap:20px;
+  background:linear-gradient(90deg, #1E293B 0%, #172554 100%); border-color:#3B82F6; }
+.card.intro .info { flex:1; }
+.card.soon { opacity:0.55; border-style:dashed; }
+
+.card .kick { color:var(--amber); font-size:11px; font-weight:700; letter-spacing:2px; margin-bottom:4px; }
+.card.intro .kick { color:#93C5FD; }
+.card .ttl { font-size:19px; font-weight:700; line-height:1.3; color:#FFFFFF; margin-bottom:12px; }
+.card.intro .ttl { font-size:21px; margin-bottom:4px; }
+.card.intro .desc { color:var(--dim); font-size:14px; line-height:1.4; }
+.card.soon .ttl { color:var(--dim); font-weight:600; }
+
+.card .ln { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; text-decoration:none; background:var(--amber);
+  color:#14213D; font-weight:700; font-size:13px; padding:7px 16px; border-radius:6px; border:0; }
+.btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
+.btn:hover { filter:brightness(1.08); }
+.tag-soon { color:var(--dim); font-size:13px; font-style:italic; }
+
+footer { margin-top:24px; color:#94A3B8; font-size:13px; line-height:1.7;
+  border-top:1px solid var(--line); padding-top:16px; }
+
+@media (max-width:720px) {
+  .grid { grid-template-columns:1fr; }
+  .card.intro { grid-column:span 1; flex-direction:column; align-items:flex-start; }
+  h1 { font-size:30px; }
+}
+</style></head><body><div class="wrap">
+<div class="kick0">KL BUSINESS SCHOOL &middot; MBA &middot; TRIMESTER 2 &middot; 2026-27</div>
+<h1>Programming for Business</h1>
+<div class="sub">Course 26MB5207E &nbsp;&middot;&nbsp; CO1 &ndash; CO6 &nbsp;&middot;&nbsp; L-T-P-S 3-1-3-0 &nbsp;&middot;&nbsp; lecture slides and Colab labs, hosted online.</div>
+
+<div class="grid">
+  <!-- Row 1: 1 tile (Intro spanning full width) -->
+  <div class="card intro">
+    <div class="info">
+      <div class="kick">INTRODUCTION</div>
+      <div class="ttl">Python: Why, How &amp; Where</div>
+      <div class="desc">What Python is, how it executes line-by-line, and why it is the default language for business data &amp; AI.</div>
+    </div>
+    <div class="ln">
+      <a class="btn" href="intro.html">View Slides</a>
+    </div>
+  </div>
+
+  <!-- Row 2: 2 tiles (CO1 & CO2) -->
+  <div class="card">
+    <div>
+      <div class="kick">CO1 &middot; FUNDAMENTALS</div>
+      <div class="ttl">Python Fundamentals &amp; Control Flow</div>
+    </div>
+    <div class="ln">
+      <a class="btn" href="co1-theory.html">Slides</a>
+      <a class="btn ghost" href="co1-labs.html">Labs</a>
+    </div>
+  </div>
+  <div class="card soon">
+    <div>
+      <div class="kick">CO2 &middot; DATA WRANGLING</div>
+      <div class="ttl">Data Wrangling with pandas &amp; numpy</div>
+    </div>
+    <div class="ln"><span class="tag-soon">Coming soon</span></div>
+  </div>
+
+  <!-- Row 3: 2 tiles (CO3 & CO4) -->
+  <div class="card soon">
+    <div>
+      <div class="kick">CO3 &middot; RELATIONAL DATA</div>
+      <div class="ttl">Relational Data &amp; SQL</div>
+    </div>
+    <div class="ln"><span class="tag-soon">Coming soon</span></div>
+  </div>
+  <div class="card soon">
+    <div>
+      <div class="kick">CO4 &middot; ANALYSIS</div>
+      <div class="ttl">Programmatic Data Analysis</div>
+    </div>
+    <div class="ln"><span class="tag-soon">Coming soon</span></div>
+  </div>
+
+  <!-- Row 4: 2 tiles (CO5 & CO6) -->
+  <div class="card soon">
+    <div>
+      <div class="kick">CO5 &middot; DATA &amp; WORKFLOWS</div>
+      <div class="ttl">APIs, Data Acquisition &amp; Version Control</div>
+    </div>
+    <div class="ln"><span class="tag-soon">Coming soon</span></div>
+  </div>
+  <div class="card soon">
+    <div>
+      <div class="kick">CO6 &middot; CAPSTONE</div>
+      <div class="ttl">End-to-End Reproducible Analysis</div>
+    </div>
+    <div class="ln"><span class="tag-soon">Coming soon</span></div>
+  </div>
+</div>
+
+<footer>Slides open in the browser — arrow keys or tap to turn, F for fullscreen. Labs open straight in Colab — one click, no downloads.<br><b>Faculty Instructors:</b> Dr. Subhodeep Mukherjee &middot; Dr. A Udaya Shankar &nbsp;&middot;&nbsp; <b>Course Coordinator:</b> Uday Kiran Kalyanam &middot; Dept of MBA (KLVZA)</footer>
+</div></body></html>

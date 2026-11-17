@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programming for Business - CO1 Labs</title>
+<style>
+:root { --bg:#0F172A; --panel:#1E293B; --line:#2B3A55; --ink:#E2E8F0; --dim:#94A3B8; --amber:#F5B041; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { min-height:100%; }
+body { min-height:100vh; background:var(--bg); color:var(--ink); font-family:Arial,"Helvetica Neue",sans-serif;
+  display:flex; flex-direction:column; }
+header.top { flex-shrink:0; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:10px 18px; background:rgba(15,23,42,.93); border-bottom:1px solid var(--line); }
+.brand { font-size:13px; letter-spacing:2px; color:var(--amber); font-weight:700; }
+.crumb { font-size:13px; color:var(--dim); }
+.crumb a { color:var(--dim); text-decoration:none; }
+.crumb a:hover { color:var(--ink); }
+.top .grow { flex:1; }
+.btn { display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+  background:var(--amber); color:#14213D; font-weight:700; font-size:14px;
+  padding:8px 18px; border-radius:8px; border:0; cursor:pointer; }
+.btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
+.btn.ghost:hover { border-color:var(--amber); color:var(--amber); }
+
+.wrap { max-width:880px; width:94%; margin:0 auto; padding:34px 0 48px; flex:1; }
+.kick0 { color:var(--amber); font-weight:700; letter-spacing:3px; font-size:13px; }
+h1 { font-size:36px; line-height:1.15; margin:10px 0 6px; }
+.sub { color:var(--dim); font-size:16px; margin-bottom:30px; line-height:1.55; }
+
+.dl-card { background:linear-gradient(90deg,#1E293B 0%,#172554 100%); border:1px solid #3B82F6;
+  border-radius:12px; padding:22px 24px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:30px; }
+.dl-card .info { flex:1; min-width:240px; }
+.dl-card .f { font-size:19px; font-weight:700; }
+.dl-card .m { color:var(--dim); font-size:14px; margin-top:4px; line-height:1.5; }
+
+.step { background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:16px 18px; margin-bottom:12px; display:flex; gap:14px; }
+.step .n { background:var(--amber); color:#14213D; font-weight:700; width:32px; height:32px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:15px; }
+.step h2 { font-size:15px; margin-bottom:3px; }
+.step p { color:var(--dim); font-size:14px; line-height:1.55; }
+.step code { font-family:'Courier New',monospace; font-size:13px; color:var(--amber); }
+
+.contents { background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:18px 20px; margin-top:26px; }
+.contents h2 { font-size:13px; letter-spacing:2px; color:var(--amber); margin-bottom:12px; }
+.contents ul { list-style:none; }
+.contents li { color:var(--dim); font-size:14px; line-height:1.7; padding-left:18px; position:relative; }
+.contents li::before { content:"\00b7"; position:absolute; left:0; color:var(--amber); }
+.contents li b { color:var(--ink); font-weight:700; }
+
+.note { margin-top:26px; border-left:4px solid var(--amber); background:rgba(245,176,65,.08);
+  border-radius:0 8px 8px 0; padding:14px 16px; color:var(--dim); font-size:14px; line-height:1.6; }
+
+footer { margin-top:34px; color:#94A3B8; font-size:13px; line-height:1.7;
+  border-top:1px solid var(--line); padding-top:16px; }
+
+@media (max-width:520px) {
+  h1 { font-size:28px; }
+  .step { flex-direction:column; gap:8px; }
+}
+</style></head>
+<body>
+<header class="top">
+  <div class="brand">PFBS &middot; 26MB5207E</div>
+  <div class="crumb"><a href="index.html">Course</a> &nbsp;/&nbsp; CO1 Labs</div>
+  <div class="grow"></div>
+  <a class="btn ghost" href="index.html">All modules</a>
+</header>
+
+<div class="wrap">
+<div class="kick0">CO1 &middot; LABS</div>
+<h1>CO1 Labs &mdash; run them in Google&nbsp;Colab</h1>
+<div class="sub">The labs for this module live in a single Colab notebook. Download it once, open it in Colab, and work through the cells as the lectures progress. No installs, no setup &mdash; Colab runs Python 3 for you, free, in the browser.</div>
+
+<div class="dl-card">
+  <div class="info">
+    <div class="f">Open the CO1 notebook in Colab &nbsp;<span style="color:var(--dim);font-weight:400">&middot; no download, no setup &middot; free Google account</span></div>
+    <div class="m">The notebook loads straight into a Colab tab. Work through the cells &mdash; everything you run is your own record.</div>
+  </div>
+  <a class="btn" href="https://colab.research.google.com/drive/1zu5A_OGIcv6VNwMeiG9MlfphjF9G-DOO" target="_blank" rel="noopener">Open in Colab</a>
+</div>
+<p style="text-align:center;margin:-14px 0 30px;color:var(--dim);font-size:13px">Offline or Colab down? <a href="co1-lab.ipynb" download="CO1-Labs.ipynb" style="color:var(--ink);text-decoration:underline">Download the file instead</a> and open it with <code style="font-family:'Courier New',monospace;color:var(--amber)">File &rarr; Open Notebook</code> in Colab.</p>
+
+<div class="step">
+  <div class="n">1</div>
+  <div><h2>Open the notebook</h2>
+  <p>Click <b style="color:var(--ink)">Open in Colab</b> above. A free Google account is all you need &mdash; there is nothing to install. If Colab ever asks you to connect Drive, allow it; that is just Colab reaching the notebook.</p></div>
+</div>
+
+<div class="step">
+  <div class="n">2</div>
+  <div><h2>Run cell by cell, in order</h2>
+  <p>Click a cell and press <b style="color:var(--ink)">&#9654; Run</b> (or <code>Cmd/Ctrl + Enter</code>). Lecture cells show the demo; when you reach a cell marked <code>YOUR TURN</code>, write the code yourself and run it before moving on.</p></div>
+</div>
+
+<div class="step">
+  <div class="n">3</div>
+  <div><h2>Keep your record</h2>
+  <p>Before you close, choose <code>File &rarr; Save copy in Drive</code>. Your saved copy with your answers is your lab record for the module.</p></div>
+</div>
+
+<div class="contents">
+  <h2>WHAT IS INSIDE THE FILE</h2>
+  <ul>
+    <li><b>3 lecture walkthroughs</b> &mdash; variables &amp; types, data structures, control flow &amp; functions &mdash; each ending in a check-your-answers cell</li>
+    <li><b>3 practical blocks</b> &mdash; 4 business exercises each (invoice, inventory, discount, loop workout &hellip;), every one a <code>YOUR TURN</code> cell</li>
+    <li><b>1 build-along project</b> &mdash; an automated invoice system with an auto-checker cell that grades your function</li>
+  </ul>
+</div>
+
+<div class="note">Tip: the notebook follows the lecture order, so you can work on it <b style="color:var(--ink)">during</b> the week &mdash; do a practical block right after its lecture. It is plain Python 3, so it also opens in any local IDE (VS Code, Jupyter) if you ever need to work without Google.</div>
+
+<footer><b>Faculty Instructors:</b> Dr. Subhodeep Mukherjee &middot; Dr. A Udaya Shankar &nbsp;&middot;&nbsp; <b>Course Coordinator:</b> Uday Kiran Kalyanam &middot; Dept of MBA (KLVZA)</footer>
+</div>
+</body></html>

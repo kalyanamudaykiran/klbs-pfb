@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programming for Business - CO1 Slides</title>
+<style>
+:root {
+  --bg:#0F172A; --panel:#1E293B; --line:#2B3A55; --ink:#E2E8F0; --dim:#94A3B8;
+  --amber:#F5B041; --code:#0B1220;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { height:100%; }
+body { background:var(--bg); color:var(--ink); font-family:Arial,"Helvetica Neue",sans-serif;
+  height:100dvh; overflow:hidden; display:flex; flex-direction:column; }
+header.top { flex-shrink:0; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:10px 18px; background:rgba(15,23,42,.93); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line); }
+.brand { font-size:13px; letter-spacing:2px; color:var(--amber); font-weight:700; }
+.crumb { font-size:13px; color:var(--dim); }
+.crumb a { color:var(--dim); text-decoration:none; }
+.crumb a:hover { color:var(--ink); }
+.top .grow { flex:1; }
+.btn { display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+  background:var(--amber); color:#14213D; font-weight:700; font-size:14px;
+  padding:8px 18px; border-radius:8px; border:0; cursor:pointer; }
+.btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
+
+.deck-wrap { flex:1; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; padding:4px 8px; overflow:hidden; position:relative; }
+.stage-box { position:relative; margin:0 auto; }
+.stage { position:relative; width:1280px; height:720px; transform-origin:top center;
+  border-radius:10px; overflow:hidden; box-shadow:0 30px 80px -20px rgba(0,0,0,.65);
+  cursor:pointer; background:#14213D; font-size:16px; }
+.slide { position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .18s ease; }
+.slide.active { opacity:1; pointer-events:auto; }
+.slide .shp { color:#E8EEF8; }
+.slide .shp p { margin:0; }
+.nav { display:flex; align-items:center; gap:12px; padding:8px 0 2px; flex-wrap:wrap; justify-content:center; }
+.nav button { background:var(--panel); color:var(--ink); border:1px solid var(--line);
+  width:40px; height:40px; border-radius:50%; font-size:17px; cursor:pointer; }
+.nav button:hover { border-color:var(--amber); color:var(--amber); }
+.count { font-size:14px; color:var(--dim); min-width:70px; text-align:center; font-variant-numeric:tabular-nums; }
+.bar { position:absolute; left:0; top:0; height:3px; background:var(--amber); transition:width .2s ease; z-index:5; }
+.hint { font-size:12px; color:var(--dim); margin:0; text-align:center;
+  border-left:1px solid var(--line); padding-left:14px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.hint kbd { background:var(--panel); border:1px solid var(--line); border-radius:4px;
+  padding:1px 6px; font-size:11px; color:var(--ink); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">PFBS &middot; 26MB5207E</div>
+  <div class="crumb"><a href="index.html">Course</a> &nbsp;/&nbsp; CO1 Slides</div>
+  <div class="grow"></div>
+  <a class="btn ghost" href="index.html">All modules</a>
+</header>
+<div class="deck-wrap">
+  <div class="stage-box">
+    <div class="stage"><div class="bar" id="pbar"></div>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:53px;width:1152px;height:38px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:4.0px;font-size:24px;color:#F5B041"><b>CO1</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:139px;width:672px;height:230px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:67px;color:#FFFFFF"><b>Python Fundamentals &amp; Control Flow</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:413px;width:653px;height:106px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:35px;color:#E8EEF8">From your first variable to automating a real business task</span></p>
+</div>
+<div class="shp" style="left:62px;top:557px;width:192px;height:58px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;background:#F5B041;border-radius:10px">
+<p style="text-align:center"><span style="font-size:27px;color:#14213D"><b>COI1</b></span></p>
+</div>
+<div class="shp" style="left:274px;top:557px;width:192px;height:58px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;background:#F5B041;border-radius:10px">
+<p style="text-align:center"><span style="font-size:27px;color:#14213D"><b>COI2</b></span></p>
+</div>
+<div class="shp" style="left:485px;top:557px;width:192px;height:58px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;background:#F5B041;border-radius:10px">
+<p style="text-align:center"><span style="font-size:27px;color:#14213D"><b>COI3</b></span></p>
+</div>
+<div class="shp" style="left:758px;top:192px;width:461px;height:210px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:35px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">name</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;Asha&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">sales</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">12500</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">name</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">sales</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#8FA3C0"># Asha 12500</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>ROADMAP</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>CO1 in three sessions</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">Python Fundamentals &amp; Control Flow · CO1</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:366px;height:379px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:61px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:206px;width:318px;height:341px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>COI1</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:37px;color:#14213D"><b>Python Basics and Decisions</b></span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Variables, data types</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Operators</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Input and f-strings</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">if / elif / else</span></p>
+</div>
+<div class="shp" style="left:457px;top:187px;width:366px;height:379px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:61px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:481px;top:206px;width:318px;height:341px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>COI2</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:37px;color:#14213D"><b>Data Structures and Loops</b></span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Lists and dictionaries</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Tuples and sets</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">for loops</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">while loops</span></p>
+</div>
+<div class="shp" style="left:852px;top:187px;width:366px;height:379px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:61px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:876px;top:206px;width:318px;height:341px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>COI3</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:37px;color:#14213D"><b>Functions and Automation</b></span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Functions</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Clean code habits</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Automate a task</span></p>
+<p style="margin-bottom:8px;padding-left:24px;text-indent:-24px"><span style="display:inline-block;width:24px;font-size:31px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:31px;color:#14213D">Build confidence</span></p>
+</div>
+<div class="shp" style="left:62px;top:586px;width:1152px;height:53px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:32px;color:#4A5568">Each lecture ends with a short hands-on activity or a build-along project.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">2</span></p>
+</div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:53px;width:1152px;height:38px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:4.0px;font-size:24px;color:#F5B041"><b>CO1 / COI1</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:125px;width:1152px;height:134px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:75px;color:#FFFFFF"><b>Python Basics and Decisions</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:288px;width:1152px;height:53px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:37px;color:#F5B041"><b>By the end of this lecture, students can:</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:355px;width:1152px;height:269px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Store values in variables and name them well</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Choose the right data type and operator</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Make a program take decisions with if / elif / else</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · VARIABLES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Variables store values</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:519px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A variable is a named box that holds a value</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Names use letters, digits and underscores, and never start with a digit</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Prefer snake_case: </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>unit_price</b></span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Create one with </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>=</b></span></p>
+</div>
+<div class="shp" style="left:620px;top:187px;width:597px;height:235px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:39px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">x</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">120</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">name</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Uday&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">place</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Vijayawada&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">place_city</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Visakhapatnam&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">place_country</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;India&quot;</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">4</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · DATA TYPES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Four core data types</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:614px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>int</b></span><span style="font-size:37px;color:#14213D">: whole numbers</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>float</b></span><span style="font-size:37px;color:#14213D">: numbers with decimals</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>str</b></span><span style="font-size:37px;color:#14213D">: text inside quotes</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>bool</b></span><span style="font-size:37px;color:#14213D">: True or False</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>type()</b></span><span style="font-size:37px;color:#14213D"> reveals the type</span></p>
+</div>
+<div class="shp" style="left:715px;top:187px;width:502px;height:273px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:46px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">units</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">12</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">99.5</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">item</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Invoice&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">True</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">type</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">type</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">))</span></p>
+</div>
+<div class="shp" style="left:715px;top:479px;width:502px;height:146px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:24px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">&lt;class &#x27;float&#x27;&gt;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">&lt;class &#x27;bool&#x27;&gt;</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">5</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · INPUT AND OUTPUT</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Input, conversion and f-strings</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:529px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>input()</b></span><span style="font-size:37px;color:#14213D"> always returns text (str)</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Convert with </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>int()</b></span><span style="font-size:37px;color:#14213D"> or </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>float()</b></span><span style="font-size:37px;color:#14213D"> before doing maths</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">f-strings mix text and values neatly</span></p>
+</div>
+<div class="shp" style="left:630px;top:187px;width:588px;height:185px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:31px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">qty</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">int</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">input</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#F5B041">&quot;Quantity: &quot;</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">rate</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">float</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">input</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#F5B041">&quot;Rate: &quot;</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">qty</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> * </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">rate</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#F5B041">f&quot;Total bill: {total}&quot;</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:630px;top:392px;width:588px;height:168px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:28px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output (typing 3 and 25.5):</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">Quantity: 3</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">Rate: 25.5</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">Total bill: 76.5</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">6</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · OPERATORS (1 OF 3)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Arithmetic operators</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:500px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px;padding-left:29px;text-indent:-29px"><span style="display:inline-block;width:29px;font-size:32px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D"><b>+  -  *</b></span><span style="font-size:32px;color:#14213D"> add, subtract, multiply</span></p>
+<p style="margin-bottom:11px;padding-left:29px;text-indent:-29px"><span style="display:inline-block;width:29px;font-size:32px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D"><b>/</b></span><span style="font-size:32px;color:#14213D"> gives a decimal result</span></p>
+<p style="margin-bottom:11px;padding-left:29px;text-indent:-29px"><span style="display:inline-block;width:29px;font-size:32px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D"><b>//</b></span><span style="font-size:32px;color:#14213D"> gives the whole-number part</span></p>
+<p style="margin-bottom:11px;padding-left:29px;text-indent:-29px"><span style="display:inline-block;width:29px;font-size:32px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D"><b>%</b></span><span style="font-size:32px;color:#14213D"> gives the remainder</span></p>
+<p style="margin-bottom:11px;padding-left:29px;text-indent:-29px"><span style="display:inline-block;width:29px;font-size:32px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D"><b>**</b></span><span style="font-size:32px;color:#14213D"> raises to a power</span></p>
+</div>
+<div class="shp" style="left:601px;top:187px;width:616px;height:310px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:52px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#8FA3C0"># split a bill of 850 among 4</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">bill</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">850</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">people</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">4</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">bill</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> / </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">people</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">bill</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> // </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">people</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">bill</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> % </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">people</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">2</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> ** </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">3</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:601px;top:505px;width:616px;height:205px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:33px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">212.5</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">212</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">2</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">8</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">7</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · OPERATORS (2 OF 3)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Comparison operators</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:614px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>==</b></span><span style="font-size:37px;color:#14213D"> equal to, </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>!=</b></span><span style="font-size:37px;color:#14213D"> not equal to</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>&gt;  &lt;  &gt;=  &lt;=</b></span><span style="font-size:37px;color:#14213D"> compare size</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">The result is always True or False</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Remember: </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>=</b></span><span style="font-size:37px;color:#14213D"> stores, </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>==</b></span><span style="font-size:37px;color:#14213D"> compares</span></p>
+</div>
+<div class="shp" style="left:715px;top:187px;width:502px;height:273px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:46px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#8FA3C0"># is the shelf stocked?</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">25</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> == </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">0</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> != </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">0</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> &gt;= </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">10</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> &lt; </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">10</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:715px;top:479px;width:502px;height:215px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">False</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">True</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">True</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">False</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">8</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · OPERATORS (3 OF 3)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Logical operators</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:577px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>and</b></span><span style="font-size:37px;color:#14213D">: True only if both sides are True</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>or</b></span><span style="font-size:37px;color:#14213D">: True if at least one side is True</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>not</b></span><span style="font-size:37px;color:#14213D">: flips True and False</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Combine them to write business rules</span></p>
+</div>
+<div class="shp" style="left:678px;top:187px;width:540px;height:273px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:46px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#8FA3C0"># can we ship this order?</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">in_stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">True</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">False</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">in_stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">and</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">in_stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">or</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">not</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">paid</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:678px;top:479px;width:540px;height:180px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:30px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">False</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">True</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">True</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">9</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI1 / LECTURE 1 · CONDITIONALS</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Making decisions with if</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI1 · Basics and decisions</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:614px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>if</b></span><span style="font-size:37px;color:#14213D">, </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>elif</b></span><span style="font-size:37px;color:#14213D"> and </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>else</b></span><span style="font-size:37px;color:#14213D"> choose one path</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A condition is either True or False</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Indent the block by 4 spaces and end the line with a colon</span></p>
+</div>
+<div class="shp" style="left:715px;top:187px;width:502px;height:348px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:58px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">marks</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">72</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">if</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">marks</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> &gt;= </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">80</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">grade</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;A&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">elif</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">marks</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> &gt;= </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">60</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">grade</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;B&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">else</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">grade</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;C&quot;</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">grade</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:715px;top:554px;width:502px;height:78px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:13px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output: </b></span><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">B</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">10</span></p>
+</div>
+</section>
+<section class="slide" style="background:#F5B041">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#14213D"><b>ACTIVITY · 15 MINUTES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:61px;color:#14213D"><b>Discount calculator</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:192px;width:701px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">&#8226; Ask for the bill amount and convert it to float</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">&#8226; If the amount is 5000 or more, give 10% off</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">&#8226; Else if it is 2000 or more, give 5% off</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">&#8226; Otherwise there is no discount</span></p>
+<p style=""><span style="font-size:37px;color:#14213D">&#8226; Print the final amount with an f-string</span></p>
+</div>
+<div class="shp" style="left:797px;top:192px;width:420px;height:326px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:54px;border:1.00px solid #FFFFFF">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:826px;top:216px;width:365px;height:278px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:13px"><span style="font-size:40px;color:#C2570C"><b>Stretch goal</b></span></p>
+<p style=""><span style="font-size:35px;color:#14213D">Add 18% GST after the discount and print both amounts.</span></p>
+</div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#F5B041"><b>CO1 / COI1 / LECTURE 1 · RECAP</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#FFFFFF"><b>What we covered</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:197px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:216px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Variables</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">Named boxes for values, written in snake_case</span></p>
+</div>
+<div class="shp" style="left:654px;top:197px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:216px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Data types</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">int, float, str and bool, plus conversion</span></p>
+</div>
+<div class="shp" style="left:62px;top:432px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:451px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Operators</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">Arithmetic, comparison and logical</span></p>
+</div>
+<div class="shp" style="left:654px;top:432px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:451px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Decisions</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">if / elif / else choose one path</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#8FA3C0">12</span></p>
+</div>
+<div class="shp" style="left:601px;top:667px;width:618px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start"><p style=""><span style="letter-spacing:0.9px;font-size:19px;color:#F5B041;text-align:right;width:100%">Next: CO2 &mdash; Data Wrangling with pandas &amp; numpy</span></p></div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:53px;width:1152px;height:38px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:4.0px;font-size:24px;color:#F5B041"><b>CO1 / COI2</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:125px;width:1152px;height:134px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:75px;color:#FFFFFF"><b>Data Structures and Loops</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:288px;width:1152px;height:53px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:37px;color:#F5B041"><b>By the end of this lecture, students can:</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:355px;width:1152px;height:269px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Store many values in lists and dictionaries</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Choose between list, tuple, set and dict</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Repeat work with for and while loops</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · LISTS</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Lists hold many values</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:481px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A list keeps values in order</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Counting starts at 0, and ‑1 is the last item</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Lists can change: append, remove, update</span></p>
+</div>
+<div class="shp" style="left:582px;top:187px;width:636px;height:273px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:46px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = [</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;pen&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;book&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;bag&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">]</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">0</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">])</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">.</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">append</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;ruler&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">.</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">remove</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;book&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">len</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">items</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:582px;top:479px;width:636px;height:180px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:30px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">pen</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">3</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">[&#x27;pen&#x27;, &#x27;bag&#x27;, &#x27;ruler&#x27;]</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">14</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · DICTIONARIES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Dictionaries store records</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:614px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A dictionary stores key: value pairs</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Look up by key, not by position</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Ideal for one product, student or invoice</span></p>
+</div>
+<div class="shp" style="left:715px;top:187px;width:502px;height:348px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:58px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">product</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = {</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;name&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Notebook&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">,</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">45</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">,</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;stock&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">30</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">}</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">product</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;name&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">])</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">product</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;stock&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">] = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">25</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">product</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;stock&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">])</span></p>
+</div>
+<div class="shp" style="left:62px;top:461px;width:614px;height:146px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:24px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Notebook</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">25</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">15</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · CORE DATA STRUCTURES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Tuples and sets</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:582px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>tuple</b></span><span style="font-size:37px;color:#14213D"> </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>( )</b></span><span style="font-size:37px;color:#14213D">: ordered and fixed, it cannot change</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D"><b>set</b></span><span style="font-size:37px;color:#14213D"> </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>{ }</b></span><span style="font-size:37px;color:#14213D">: unique values only, no order</span></p>
+</div>
+<div class="shp" style="left:683px;top:187px;width:535px;height:288px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:48px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#8FA3C0"># shop location: fixed pair</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">point</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = (</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">12.9</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">77.6</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#8FA3C0"># customer IDs: no repeats</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">ids</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = {</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">101</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">102</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">102</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">103</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">}</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">point</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">0</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">])</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">len</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">ids</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">102</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">in</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">ids</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:62px;top:418px;width:582px;height:168px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:28px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">12.9</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">3</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">True</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">16</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · CORE DATA STRUCTURES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Which structure should I use?</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:206px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:45px;color:#14213D"><b>list [ ]</b></span></p>
+<p style=""><span style="font-size:35px;color:#4A5568">A series of values, such as daily sales</span></p>
+</div>
+<div class="shp" style="left:654px;top:187px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:206px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:45px;color:#14213D"><b>dict { }</b></span></p>
+<p style=""><span style="font-size:35px;color:#4A5568">One record with labelled fields, such as a customer</span></p>
+</div>
+<div class="shp" style="left:62px;top:430px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:449px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:45px;color:#14213D"><b>tuple ( )</b></span></p>
+<p style=""><span style="font-size:35px;color:#4A5568">A fixed pair that must not change, like a shop&#x27;s location</span></p>
+</div>
+<div class="shp" style="left:654px;top:430px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:449px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:45px;color:#14213D"><b>set { }</b></span></p>
+<p style=""><span style="font-size:35px;color:#4A5568">Unique items only, such as the cities customers live in</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">17</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · LOOPS (1 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>The for loop</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:599px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>for</b></span><span style="font-size:37px;color:#14213D"> walks through a collection, one item at a time</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">The loop variable (</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>p</b></span><span style="font-size:37px;color:#14213D">) holds the current item</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Indent the lines that should repeat</span></p>
+<p style="margin-bottom:19px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Great for totals, counts and reports</span></p>
+</div>
+<div class="shp" style="left:700px;top:187px;width:517px;height:251px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:42px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">prices</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = [</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">120</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">80</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">45</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">]</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">0</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#93C5FD">for</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">p</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#93C5FD">in</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">prices</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> + </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">p</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:700px;top:457px;width:517px;height:81px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:14px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:29px;color:#14213D"><b>Output: </b></span><span style="font-family:'Courier New',monospace;font-size:32px;color:#14213D">245</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">18</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · LOOPS (2 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>The while loop</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:614px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#14213D"><b>while</b></span><span style="font-size:35px;color:#14213D"> repeats as long as a condition is True</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D">Something inside the loop must change the condition</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D">Otherwise it never stops (press Ctrl+C)</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D">Use </span><span style="font-size:35px;color:#14213D"><b>for</b></span><span style="font-size:35px;color:#14213D"> for known collections, </span><span style="font-size:35px;color:#14213D"><b>while</b></span><span style="font-size:35px;color:#14213D"> for “until done”</span></p>
+</div>
+<div class="shp" style="left:715px;top:187px;width:502px;height:235px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:39px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">3</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">while</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> &gt; </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">0</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Selling...&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">stock</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> - </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">1</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Sold out&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:715px;top:442px;width:502px;height:215px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Selling...</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Selling...</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Selling...</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Sold out</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">19</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · PUTTING IT TOGETHER (1 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>A list of records</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:1155px;height:116px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:13px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A list holds many dictionaries</span></p>
+<p style="margin-bottom:13px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Each dictionary is one order: item, qty and price</span></p>
+</div>
+<div class="shp" style="left:62px;top:318px;width:975px;height:210px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:35px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">orders</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8"> = [</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">    {</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;item&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;Pen&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">10</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">5</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">},</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">    {</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;item&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;Book&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">2</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#86EFAC">60</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">},</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:35px;color:#E8EEF8">]</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">20</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI2 / LECTURE 2 · PUTTING IT TOGETHER (2 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Loop over a list of records</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI2 · Data structures and loops</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:1155px;height:165px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:13px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D">The loop visits each record</span></p>
+<p style="margin-bottom:13px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D">qty times price gives a line total</span></p>
+<p style="margin-bottom:13px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:35px;color:#14213D"><b>+=</b></span><span style="font-size:35px;color:#14213D"> adds it to the running total</span></p>
+</div>
+<div class="shp" style="left:62px;top:366px;width:866px;height:198px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:33px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">0</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">for</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">in</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">orders</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> += </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">] * </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">]</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">f&quot;Total sales: {total}&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:62px;top:583px;width:866px;height:78px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:13px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output: </b></span><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Total sales: 170</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">21</span></p>
+</div>
+</section>
+<section class="slide" style="background:#F5B041">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#14213D"><b>ACTIVITY · 20 MINUTES</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:61px;color:#14213D"><b>Stock checker</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:192px;width:701px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">Make a list of 4 dictionaries, each with a name and a stock number</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">Loop through the list</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">Print a warning for any product with stock below 10</span></p>
+<p style="margin-bottom:21px"><span style="font-size:37px;color:#14213D">Count how many products need reordering and print the count</span></p>
+</div>
+<div class="shp" style="left:797px;top:192px;width:420px;height:326px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:54px;border:1.00px solid #FFFFFF">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:826px;top:216px;width:365px;height:278px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:13px"><span style="font-size:40px;color:#C2570C"><b>Stretch goal</b></span></p>
+<p style=""><span style="font-size:35px;color:#14213D">Ask for the reorder level with input() instead of using 10.</span></p>
+</div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#F5B041"><b>CO1 / COI2 / LECTURE 2 · RECAP</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#FFFFFF"><b>What we covered</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:197px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:216px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Lists</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">Ordered and changeable: append, remove, index</span></p>
+</div>
+<div class="shp" style="left:654px;top:197px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:216px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Dictionaries</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">Key: value records for quick lookups</span></p>
+</div>
+<div class="shp" style="left:62px;top:432px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:451px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Tuples and sets</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">Fixed groups and unique values</span></p>
+</div>
+<div class="shp" style="left:654px;top:432px;width:563px;height:206px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#1F2F55;border-radius:34px;border:1.50px solid #1F2F55">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:451px;width:515px;height:168px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#F5B041"><b>Loops</b></span></p>
+<p style=""><span style="font-size:35px;color:#E8EEF8">for walks a collection, while repeats on a condition</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#8FA3C0">23</span></p>
+</div>
+<div class="shp" style="left:601px;top:667px;width:618px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start"><p style=""><span style="letter-spacing:0.9px;font-size:19px;color:#F5B041;text-align:right;width:100%">Next: CO2 &mdash; Data Wrangling with pandas &amp; numpy</span></p></div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:53px;width:1152px;height:38px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:4.0px;font-size:24px;color:#F5B041"><b>CO1 / COI3</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:125px;width:1152px;height:134px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:75px;color:#FFFFFF"><b>Functions and Automation</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:288px;width:1152px;height:53px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:37px;color:#F5B041"><b>By the end of this lecture, students can:</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:355px;width:1152px;height:269px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Write reusable functions with parameters and return values</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Follow clean-code habits that others can read</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Automate a simple, repetitive business task</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · FUNCTIONS</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Functions: write once, use often</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:1155px;height:174px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:13px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">A function packages steps under a name</span></p>
+<p style="margin-bottom:13px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>def</b></span><span style="font-size:37px;color:#14213D"> starts it, and </span><span style="font-family:'Courier New',monospace;font-size:37px;color:#14213D"><b>return</b></span><span style="font-size:37px;color:#14213D"> sends a value back</span></p>
+<p style="margin-bottom:13px;padding-left:33px;text-indent:-33px"><span style="display:inline-block;width:33px;font-size:37px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:37px;color:#14213D">Parameters can have default values</span></p>
+</div>
+<div class="shp" style="left:62px;top:376px;width:751px;height:235px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:39px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">def</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">add_gst</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">amount</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">rate</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">=</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">18</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">):</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">return</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">amount</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> * (</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">1</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> + </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">rate</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> / </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">100</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">add_gst</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">1000</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">))</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">add_gst</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">1000</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">5</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">))</span></p>
+</div>
+<div class="shp" style="left:842px;top:376px;width:375px;height:146px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:24px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">1180.0</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">1050.0</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">25</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · CLEAN CODE</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Four habits of readable code</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:476px;height:451px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D"><b>Meaningful names:</b></span><span style="font-size:35px;color:#14213D"> </span><span style="font-family:'Courier New',monospace;font-size:35px;color:#14213D"><b>price_with_gst</b></span><span style="font-size:35px;color:#14213D"> says what it does</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D"><b>Small functions</b></span><span style="font-size:35px;color:#14213D"> with one clear job</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D"><b>Comments</b></span><span style="font-size:35px;color:#14213D"> explain why, not what</span></p>
+<p style="margin-bottom:19px;padding-left:31px;text-indent:-31px"><span style="display:inline-block;width:31px;font-size:35px;color:#14213D;text-align:left;">&#8226;</span><span style="font-size:35px;color:#14213D"><b>Consistent style:</b></span><span style="font-size:35px;color:#14213D"> 4 spaces, snake_case (PEP 8)</span></p>
+</div>
+<div class="shp" style="left:577px;top:187px;width:640px;height:288px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:48px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#8FA3C0"># Why: the GST rate may change</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">GST_RATE</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">0.18</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">def</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">price_with_gst</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">):</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">return</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> * (</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">1</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> + </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">GST_RATE</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">price_with_gst</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">1000</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">))</span></p>
+</div>
+<div class="shp" style="left:577px;top:495px;width:640px;height:74px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:12px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output: </b></span><span style="font-family:'Courier New',monospace;font-size:27px;color:#14213D">1180.0</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">26</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · CLEAN CODE</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Before and after</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:182px;width:558px;height:48px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:40px;color:#C2570C"><b>Hard to read</b></span></p>
+</div>
+<div class="shp" style="left:659px;top:182px;width:558px;height:48px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:40px;color:#C2570C"><b>Easy to read</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:250px;width:558px;height:146px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:24px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#93C5FD">def</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">f</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">a</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">,</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">b</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">):</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">x</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">=</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">a</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">*</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">b</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#93C5FD">return</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">x</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">*</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#86EFAC">1.18</span></p>
+</div>
+<div class="shp" style="left:659px;top:250px;width:558px;height:146px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:24px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#93C5FD">def</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">bill_with_gst</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">qty</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">):</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">subtotal</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">price</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> * </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">qty</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#93C5FD">return</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8">subtotal</span><span style="font-family:'Courier New',monospace;font-size:28px;color:#E8EEF8"> * </span><span style="font-family:'Courier New',monospace;font-size:28px;color:#86EFAC">1.18</span></p>
+</div>
+<div class="shp" style="left:62px;top:451px;width:1155px;height:144px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:40px;color:#14213D">Output for price 1000 and qty 1: both versions print 1180.0. Only the second explains itself.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">27</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · AUTOMATION PROJECT</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Automate a daily sales report</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:267px;height:355px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:45px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:206px;width:219px;height:317px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>Step 1</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:40px;color:#14213D"><b>Collect</b></span></p>
+<p style=""><span style="font-size:32px;color:#4A5568">Store orders in a list of dictionaries</span></p>
+</div>
+<div class="shp" style="left:358px;top:187px;width:267px;height:355px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:45px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:382px;top:206px;width:219px;height:317px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>Step 2</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:40px;color:#14213D"><b>Calculate</b></span></p>
+<p style=""><span style="font-size:32px;color:#4A5568">Loop through the orders and add up totals</span></p>
+</div>
+<div class="shp" style="left:654px;top:187px;width:267px;height:355px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:45px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:206px;width:219px;height:317px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>Step 3</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:40px;color:#14213D"><b>Reuse</b></span></p>
+<p style=""><span style="font-size:32px;color:#4A5568">Put the line maths in one function</span></p>
+</div>
+<div class="shp" style="left:950px;top:187px;width:267px;height:355px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:45px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:974px;top:206px;width:219px;height:317px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:3px"><span style="font-size:27px;color:#C2570C"><b>Step 4</b></span></p>
+<p style="margin-bottom:11px"><span style="font-size:40px;color:#14213D"><b>Report</b></span></p>
+<p style=""><span style="font-size:32px;color:#4A5568">Print each line and a daily total</span></p>
+</div>
+<div class="shp" style="left:62px;top:571px;width:1155px;height:67px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:37px;color:#4A5568">Do the task by hand once, then let Python repeat it every day.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">28</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · BUILD-ALONG (1 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>The finished program: data and function</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:1155px;height:348px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:58px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">orders</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> = [</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    {</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;item&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Pen&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">10</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">5</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">},</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    {</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;item&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Book&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">2</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">60</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">},</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    {</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;item&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;Bag&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">1</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">, </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">: </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#86EFAC">450</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">},</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">]</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">def</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">line_total</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">):</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#93C5FD">return</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;qty&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">] * </span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">[</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#F5B041">&quot;price&quot;</span><span style="font-family:'Courier New',monospace;font-size:32px;color:#E8EEF8">]</span></p>
+</div>
+<div class="shp" style="left:62px;top:576px;width:1155px;height:58px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style=""><span style="font-size:35px;color:#4A5568">Build it in stages: first the data, then the function.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">29</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · BUILD-ALONG (2 OF 2)</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>The finished program: loop and report</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:758px;height:288px;padding:27px 27px 21px 21px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#14213D;border-radius:48px">
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#86EFAC">0</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">for</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">in</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">orders</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">:</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">amount</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> = </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">line_total</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">order</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">total</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> += </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">amount</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">    </span><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#F5B041">f&#x27;{order[&quot;item&quot;]}: {amount}&#x27;</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8"> </span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#93C5FD">print</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">(</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#F5B041">f&quot;Daily total: {total}&quot;</span><span style="font-family:'Courier New',monospace;font-size:29px;color:#E8EEF8">)</span></p>
+</div>
+<div class="shp" style="left:845px;top:187px;width:372px;height:215px;padding:24px 24px 12px 12px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:27px;color:#14213D"><b>Output:</b></span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Pen: 50</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Book: 120</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Bag: 450</span></p>
+<p style=""><span style="font-family:'Courier New',monospace;font-size:29px;color:#14213D">Daily total: 620</span></p>
+</div>
+<div class="shp" style="left:62px;top:509px;width:758px;height:115px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:35px;color:#4A5568">Add a fourth order and re-run: the report updates with no other change.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">30</span></p>
+</div>
+</section>
+<section class="slide" style="background:#FAF7F0">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#C2570C"><b>CO1 / COI3 / LECTURE 3 · LEARNING HABITS</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#14213D"><b>Building confidence from zero</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:667px;width:960px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="font-size:19px;color:#4A5568">CO1 / COI3 · Functions and automation</span></p>
+</div>
+<div class="shp" style="left:62px;top:187px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:206px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#14213D"><b>1. Type it yourself</b></span></p>
+<p style=""><span style="font-size:37px;color:#4A5568">Typing builds memory that copy and paste never will</span></p>
+</div>
+<div class="shp" style="left:654px;top:187px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:206px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#14213D"><b>2. Predict, then run</b></span></p>
+<p style=""><span style="font-size:37px;color:#4A5568">Guess the output first, then check yourself</span></p>
+</div>
+<div class="shp" style="left:62px;top:430px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:86px;top:449px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#14213D"><b>3. Read the error</b></span></p>
+<p style=""><span style="font-size:37px;color:#4A5568">The message names the line and the problem</span></p>
+</div>
+<div class="shp" style="left:654px;top:430px;width:563px;height:214px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start;background:#FFFFFF;border-radius:36px;border:1.50px solid #E3DFD3">
+<p style=""><span style="font-size:24px">&#8203;</span></p>
+</div>
+<div class="shp" style="left:678px;top:449px;width:515px;height:175px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:11px"><span style="font-size:43px;color:#14213D"><b>4. Start small</b></span></p>
+<p style=""><span style="font-size:37px;color:#4A5568">Get a tiny version working, then grow it</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#4A5568">31</span></p>
+</div>
+</section>
+<section class="slide" style="background:#14213D">
+<div class="shp" style="left:62px;top:36px;width:1152px;height:36px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style=""><span style="letter-spacing:2.7px;font-size:24px;color:#F5B041"><b>CO1 CHECKLIST</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:75px;width:1152px;height:91px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center">
+<p style="text-align:left"><span style="font-size:56px;color:#FFFFFF"><b>I can now...</b></span></p>
+</div>
+<div class="shp" style="left:62px;top:192px;width:1155px;height:307px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Store and convert values with variables and data types</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Hold data in lists and dictionaries</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Control flow with if, for and while</span></p>
+<p style="margin-bottom:19px;padding-left:36px;text-indent:-36px"><span style="display:inline-block;width:36px;font-size:40px;color:#E8EEF8;text-align:left;">&#8226;</span><span style="font-size:40px;color:#FFFFFF">Write a clean function and automate a small task</span></p>
+</div>
+<div class="shp" style="left:62px;top:514px;width:1155px;height:115px;padding:29px 29px 19px 19px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;background:#1F2F55;border-radius:19px">
+<p style=""><span style="font-size:37px;color:#F5B041"><b>Homework: </b></span><span style="font-size:37px;color:#FFFFFF">extend the daily report to add 18% GST and print the grand total.</span></p>
+</div>
+<div class="shp" style="left:1150px;top:36px;width:64px;height:29px;padding:0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start">
+<p style="text-align:right"><span style="font-size:19px;color:#8FA3C0">32</span></p>
+</div>
+<div class="shp" style="left:601px;top:667px;width:618px;height:29px;padding:0px 0px 0px 0px;position:absolute;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start"><p style=""><span style="letter-spacing:0.9px;font-size:19px;color:#F5B041;text-align:right;width:100%">Next: CO2 &mdash; Data Wrangling with pandas &amp; numpy</span></p></div>
+</section>
+    </div>
+  </div>
+  <div class="nav">
+    <button id="prev" aria-label="Previous">&#8249;</button>
+    <span class="count" id="count"></span>
+    <button id="next" aria-label="Next">&#8250;</button>
+    <div class="hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn &middot; <kbd>F</kbd> fullscreen &middot; tap the slide or swipe</div>
+  </div>
+</div>
+<script>
+var stage = document.querySelector('.stage');
+var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+var n = slides.length, cur = 0;
+var bar = document.getElementById('pbar');
+function fit() {
+  var box = document.querySelector('.stage-box');
+  var wrap = document.querySelector('.deck-wrap');
+  var nav = document.querySelector('.nav');
+  var navH = nav ? nav.offsetHeight + 12 : 56;
+  var availW = window.innerWidth - 24;
+  var availH = wrap.clientHeight - navH;
+  var s = Math.min(availW / 1280, Math.max(availH / 720, 0.3), 2.2);
+  stage.style.transform = 'scale(' + s + ')';
+  box.style.height = (720 * s) + 'px';
+  box.style.width = (1280 * s) + 'px';
+}
+function go(i, push) {
+  cur = (i + n) % n;
+  for (var j = 0; j < n; j++) slides[j].classList.toggle('active', j === cur);
+  document.getElementById('count').textContent = (cur + 1) + ' / ' + n;
+  bar.style.width = ((cur + 1) / n * 100) + '%';
+  if (push !== false && location.hash !== '#/' + (cur + 1))
+    history.replaceState(null, '', '#/' + (cur + 1));
+}
+document.getElementById('prev').onclick = function(e) { e.stopPropagation(); go(cur - 1); };
+document.getElementById('next').onclick = function(e) { e.stopPropagation(); go(cur + 1); };
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(cur + 1); e.preventDefault(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(cur - 1);
+  else if (e.key === 'f' || e.key === 'F') {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+});
+var tx = null;
+stage.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, {passive:true});
+stage.addEventListener('touchend', function(e) {
+  if (tx === null) return;
+  var dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 40) go(dx < 0 ? cur + 1 : cur - 1);
+  tx = null;
+});
+stage.addEventListener('click', function(e) {
+  var r = stage.getBoundingClientRect();
+  go(e.clientX < (r.left + r.width * 0.5) ? cur - 1 : cur + 1);
+});
+window.addEventListener('resize', fit);
+fit();
+var m = location.hash.match(/^#\/(\d+)$/);
+go(m ? parseInt(m[1], 10) - 1 : 0, false);
+if (!m) history.replaceState(null, '', '#/1');
+</script>
+</body>
+</html>
