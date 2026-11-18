@@ -48,19 +48,22 @@ Labs are **not** rendered on the website. Each module ships:
 
 | File | Role |
 |---|---|
-| `co{X}-labs.html` | Short instructions page: one amber **`Open in Colab`** button (`https://colab.research.google.com/drive/{FILE-ID}`, `target="_blank"`) + a dim one-line fallback (`Download the file instead` → `co{X}-lab.ipynb` with `download` attribute, for offline/Colab-down) + 3 numbered steps (open → run cells in order, YOUR TURN cells → `Save copy in Drive`) + "what's inside" summary |
+| `co{X}-labs.html` | Short instructions page: one amber **`Open in Colab`** button per notebook (`https://colab.research.google.com/drive/{FILE-ID}`, `target="_blank"`) + a dim one-line download fallback under each (`Download the file instead` → `co{X}-lab.ipynb` / `co{X}-tutorial.ipynb` with `download` attribute, for offline/Colab-down) + 3 numbered steps (open → run cells in order, YOUR TURN cells → `Save copy in Drive`) + "what's inside" summary |
 | `co{X}-lab.ipynb` | The Colab notebook: blank start, **zero pre-loaded outputs**, lecture walkthrough cells, `YOUR TURN` practical cells, optional auto-checker cell. Also uploaded to the course Google Drive (shared "anyone with the link – Viewer") — the Drive copy is the source the `Open in Colab` button points at |
+| `co{X}-tutorial.ipynb` | The Tutorial notebook (added 2026-11-18): a code-along build project with `YOUR TURN` case + auto-checker cell. Same hygiene rules, own Drive link on the same labs page |
 
+- A module may ship **one or two** notebooks (Theory & Practicals, and optionally a Tutorial); `co{X}-labs.html` carries one CTA card per notebook
 - The raw download is a **fallback only** — never the primary action
 - The CO1 executed lab record (`co1-lab.html`) stays on disk but is **not linked anywhere** — retired from the site
 - Index tiles: `<a class="btn ghost" href="co{X}-labs.html">Labs</a>`
-- Notebook student hygiene: no instructor-only model answers in the shared file (CO1's cell 122 is instructor-only — if the Drive copy is the student-facing one, strip that cell before sharing; see the drive-link registry below for the current state)
+- Notebook student hygiene: no instructor-only model answers in the shared file (CO1 Tutorial's "INSTRUCTOR ONLY: model answer" cells 18 & 25 were stripped from the site's `co1-tutorial.ipynb` before publishing; strip equivalents before sharing any module's Drive copy)
 
 ### Per-module Colab link registry (update when a module ships)
 
 | Module | Colab open link (Drive file ID) |
 |---|---|
-| CO1 | `https://colab.research.google.com/drive/1zu5A_OGIcv6VNwMeiG9MlfphjF9G-DOO` |
+| CO1 Theory & Practicals | `https://colab.research.google.com/drive/1zpiq14ZD6k69-BjAxwxEKjtEZlutXGev` |
+| CO1 Tutorial | `https://colab.research.google.com/drive/14Sc8HgOrB0bkZ7j0x2RxoCbFnIOSDARy` |
 | CO2 | _pending upload_ |
 | CO3–CO6 | _pending_ |
 

@@ -70,27 +70,36 @@ footer { margin-top:34px; color:#94A3B8; font-size:13px; line-height:1.7;
 <div class="wrap">
 <div class="kick0">CO1 &middot; LABS</div>
 <h1>CO1 Labs &mdash; run them in Google&nbsp;Colab</h1>
-<div class="sub">The labs for this module live in a single Colab notebook. Download it once, open it in Colab, and work through the cells as the lectures progress. No installs, no setup &mdash; Colab runs Python 3 for you, free, in the browser.</div>
+<div class="sub">The labs for this module live in two Colab notebooks: <b style="color:var(--ink)">Theory &amp; Practicals</b> (lecture walkthroughs plus the graded lab blocks) and <b style="color:var(--ink)">Tutorial</b> (a code-along build of an invoice automation). Open them in Colab, work through the cells as the lectures progress. No installs, no setup &mdash; Colab runs Python 3 for you, free, in the browser.</div>
 
 <div class="dl-card">
   <div class="info">
-    <div class="f">Open the CO1 notebook in Colab &nbsp;<span style="color:var(--dim);font-weight:400">&middot; no download, no setup &middot; free Google account</span></div>
-    <div class="m">The notebook loads straight into a Colab tab. Work through the cells &mdash; everything you run is your own record.</div>
+    <div class="f">Theory &amp; Practicals &mdash; COI walkthroughs &amp; labs &nbsp;<span style="color:var(--dim);font-weight:400">&middot; COI-1 &middot; COI-2 &middot; COI-3</span></div>
+    <div class="m">Walks through each COI with worked examples, then hands you the lab blocks &mdash; <b>Lab 1.1</b> GST invoices &amp; paise math, the code-trace clinic, and <b>Lab 1.2</b> discount slabs &amp; billing functions. Every <code style="font-family:'Courier New',monospace;color:var(--amber)">YOUR TURN</code> cell is yours to solve.</div>
   </div>
-  <a class="btn" href="https://colab.research.google.com/drive/1zu5A_OGIcv6VNwMeiG9MlfphjF9G-DOO" target="_blank" rel="noopener">Open in Colab</a>
+  <a class="btn" href="https://colab.research.google.com/drive/1zpiq14ZD6k69-BjAxwxEKjtEZlutXGev" target="_blank" rel="noopener">Open in Colab</a>
 </div>
-<p style="text-align:center;margin:-14px 0 30px;color:var(--dim);font-size:13px">Offline or Colab down? <a href="co1-lab.ipynb" download="CO1-Labs.ipynb" style="color:var(--ink);text-decoration:underline">Download the file instead</a> and open it with <code style="font-family:'Courier New',monospace;color:var(--amber)">File &rarr; Open Notebook</code> in Colab.</p>
+<p style="text-align:center;margin:-14px 0 26px;color:var(--dim);font-size:13px">Offline or Colab down? <a href="co1-lab.ipynb" download="CO1-Labs-Theory-Practicals.ipynb" style="color:var(--ink);text-decoration:underline">Download the file instead</a> and open it with <code style="font-family:'Courier New',monospace;color:var(--amber)">File &rarr; Open Notebook</code> in Colab.</p>
+
+<div class="dl-card">
+  <div class="info">
+    <div class="f">Tutorial &mdash; build an invoice automation &nbsp;<span style="color:var(--dim);font-weight:400">&middot; code-along &middot; auto-checked</span></div>
+    <div class="m">Starts from one order and one invoice, grows it to all orders, a discount rule, invoices for every order and functions, and ends in a daily sales summary. Finish with the <code style="font-family:'Courier New',monospace;color:var(--amber)">YOUR TURN</code> multi-file case and let the auto-checker grade your function.</div>
+  </div>
+  <a class="btn" href="https://colab.research.google.com/drive/14Sc8HgOrB0bkZ7j0x2RxoCbFnIOSDARy" target="_blank" rel="noopener">Open in Colab</a>
+</div>
+<p style="text-align:center;margin:-14px 0 30px;color:var(--dim);font-size:13px">Offline or Colab down? <a href="co1-tutorial.ipynb" download="CO1-Tutorial.ipynb" style="color:var(--ink);text-decoration:underline">Download the file instead</a> and open it with <code style="font-family:'Courier New',monospace;color:var(--amber)">File &rarr; Open Notebook</code> in Colab.</p>
 
 <div class="step">
   <div class="n">1</div>
-  <div><h2>Open the notebook</h2>
-  <p>Click <b style="color:var(--ink)">Open in Colab</b> above. A free Google account is all you need &mdash; there is nothing to install. If Colab ever asks you to connect Drive, allow it; that is just Colab reaching the notebook.</p></div>
+  <div><h2>Open a notebook</h2>
+  <p>Click <b style="color:var(--ink)">Open in Colab</b> on either card above. A free Google account is all you need &mdash; there is nothing to install. If Colab ever asks you to connect Drive, allow it; that is just Colab reaching the notebook.</p></div>
 </div>
 
 <div class="step">
   <div class="n">2</div>
   <div><h2>Run cell by cell, in order</h2>
-  <p>Click a cell and press <b style="color:var(--ink)">&#9654; Run</b> (or <code>Cmd/Ctrl + Enter</code>). Lecture cells show the demo; when you reach a cell marked <code>YOUR TURN</code>, write the code yourself and run it before moving on.</p></div>
+  <p>Click a cell and press <b style="color:var(--ink)">&#9654; Run</b> (or <code>Cmd/Ctrl + Enter</code>). Walkthrough cells show the demo; when you reach a cell marked <code>YOUR TURN</code>, write the code yourself and run it before moving on.</p></div>
 </div>
 
 <div class="step">
@@ -100,15 +109,14 @@ footer { margin-top:34px; color:#94A3B8; font-size:13px; line-height:1.7;
 </div>
 
 <div class="contents">
-  <h2>WHAT IS INSIDE THE FILE</h2>
+  <h2>WHAT IS INSIDE EACH FILE</h2>
   <ul>
-    <li><b>3 lecture walkthroughs</b> &mdash; variables &amp; types, data structures, control flow &amp; functions &mdash; each ending in a check-your-answers cell</li>
-    <li><b>3 practical blocks</b> &mdash; 4 business exercises each (invoice, inventory, discount, loop workout &hellip;), every one a <code>YOUR TURN</code> cell</li>
-    <li><b>1 build-along project</b> &mdash; an automated invoice system with an auto-checker cell that grades your function</li>
+    <li><b>Theory &amp; Practicals</b> &mdash; three COI walkthroughs: COI-1 business data types (dictionaries &amp; lists of dicts), COI-2 data structures (lists, dictionaries, tuples &amp; sets), COI-3 functions, clean code &amp; automation &mdash; each followed by its lab block, all with <code>YOUR TURN</code> cells</li>
+    <li><b>Tutorial</b> &mdash; one code-along project: invoice automation, from a single order to a discount rule to a daily sales summary, finishing with a multi-file case and an auto-checker cell that grades your function</li>
   </ul>
 </div>
 
-<div class="note">Tip: the notebook follows the lecture order, so you can work on it <b style="color:var(--ink)">during</b> the week &mdash; do a practical block right after its lecture. It is plain Python 3, so it also opens in any local IDE (VS Code, Jupyter) if you ever need to work without Google.</div>
+<div class="note">Tip: the notebooks follow the lecture order, so you can work on them <b style="color:var(--ink)">during</b> the week &mdash; do a lab block right after its lecture, then the tutorial once you know functions. Both are plain Python 3, so they also open in any local IDE (VS Code, Jupyter) if you ever need to work without Google.</div>
 
 <footer><b>Faculty Instructors:</b> Dr. Subhodeep Mukherjee &middot; Dr. A Udaya Shankar &nbsp;&middot;&nbsp; <b>Course Coordinator:</b> Uday Kiran Kalyanam &middot; Dept of MBA (KLVZA)</footer>
 </div>
