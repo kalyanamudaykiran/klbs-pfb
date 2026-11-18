@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programming for Business - CO1 Notes</title>
+<title>Programming for Business - CO1 Exam Notes</title>
 <style>
 :root { --bg:#0F172A; --panel:#1E293B; --panel2:#172554; --line:#2B3A55; --ink:#E2E8F0; --dim:#94A3B8; --amber:#F5B041; --rust:#C2570C; --ok:#5EEAD4; }
 * { box-sizing:border-box; margin:0; padding:0; }
@@ -141,21 +141,22 @@ footer b { color:var(--ink); }
   <a class="l2" href="#s36">AI coding assistants</a>
   <a class="l2" href="#s37">The automation project</a>
   <a class="l2" href="#s38">Learning habits</a>
-  <a class="l1" href="#labs">Labs &amp; Tutorial map</a>
+  <a class="l1" href="#exam">Exam focus</a>
   <a class="l1" href="#cheat">Cheat sheets</a>
   <a class="l1" href="#final">CO1 final checklist</a>
+  <a class="l1" href="#practice">Practice questions</a>
 </aside>
 
 <div class="content">
-<div class="kick0">CO1 &middot; NOTES</div>
-<h1>CO1 Study Notes &mdash; Python Fundamentals &amp; Control Flow</h1>
-<div class="sub">Every concept from the 32 lecture slides, the two Colab notebooks (Theory &amp; Practicals) and the Tutorial build &mdash; written as one reference you can keep open while you work. Worked examples carry their real outputs; quick-check questions fold open to reveal answers. Do the quick checks <b style="color:var(--ink)">before</b> you open them: predicting the output is the skill itself.</div>
+<div class="kick0">CO1 &middot; EXAM NOTES</div>
+<h1>CO1 Exam Notes &mdash; Python Fundamentals &amp; Control Flow</h1>
+<div class="sub">Every concept from the 32 lecture slides and the syllabus outcome indicators &mdash; organised for the in-semester and end-semester theory papers. Worked examples carry their real outputs; quick-check questions fold open to reveal answers. Do the quick checks <b style="color:var(--ink)">before</b> you open them: predicting the output is the exam skill itself.</div>
 
 <div class="chips">
   <a class="chip" href="co1-theory.html">Slides &rarr;</a>
-  <a class="chip" href="co1-labs.html">Labs &middot; Practical 1</a>
-  <a class="chip" href="co1-labs.html">Tutorial build</a>
   <a class="chip" href="intro.html">Intro to Python</a>
+  <a class="chip" href="#exam">Exam focus &darr;</a>
+  <a class="chip" href="#cheat">Cheat sheets &darr;</a>
   <a class="chip" href="#top">Back to top &uarr;</a>
 </div>
 
@@ -181,9 +182,12 @@ footer b { color:var(--ink); }
   <tr><td><b>COI-3</b> (apply)</td><td>Apply Python control flow, functions, and lists of dictionaries with AI coding tools (Copilot/Claude) to automate repetitive business calculations.</td></tr>
 </table>
 
+<div class="callout"><div class="ttl">EXAM MAP</div>
+<p>CO1 is examined in the <b>in-semester (mid)</b> paper and re-tested in the <b>end-semester (final)</b> paper, which covers all six COs. The mid paper draws on the first half of the syllabus; in the final, CO1 fundamentals keep reappearing &mdash; usually hidden inside later modules&rsquo; question stems. Treat the whole COI table above as in scope for both.</p></div>
+
 <div class="callout">
   <div class="ttl">HOW TO USE THESE NOTES</div>
-  <p>Each section follows the lecture order: concept &rarr; worked example &rarr; pitfalls &amp; errors &rarr; quick check. The <b style="color:var(--ink)">Labs &amp; Tutorial map</b> at the end tells you exactly which exercise in Colab exercises which idea, so you can jump straight to the code when something here is fuzzy.</p>
+  <p>Each section follows the lecture order: concept &rarr; worked example &rarr; pitfalls &amp; errors &rarr; quick check. The quick checks are exam-format &mdash; output prediction and error spotting &mdash; so work through them in order. <b style="color:var(--ink)">Exam focus</b> at the end maps the syllabus levels to the question types you will meet, and closes with a practice set; <b style="color:var(--ink)">Cheat sheets</b> is the last-night page.</p>
 </div>
 
 <!-- ============================================================ -->
@@ -265,7 +269,7 @@ print(f"Total bill: {total}")</code></pre>
 <p><b>Truthy / falsy:</b> <code>bool(x)</code> is <code>False</code> for exactly <code>0</code>, <code>""</code> (empty text), <code>None</code> &mdash; almost everything else is <code>True</code>. Sneaky case: <code>"0"</code> is <b>text</b>, so it is <code>True</code>.</p>
 <pre class="code"><code>print(bool(0), bool(""), bool(None))      <span class="cm"># False False False</span>
 print(bool(5), bool("hello"), bool("0"))  <span class="cm"># True  True  True  &larr; "0" is text, not zero</span></code></pre>
-<p><b>f-string formatting specs</b> (used throughout the labs):</p>
+<p><b>f-string formatting specs</b> &mdash; the exact output of a formatted line is a favourite theory question:</p>
 <table class="tbl">
   <tr><th>Spec</th><th>Effect</th><th>Example output</th></tr>
   <tr><td><code>{x:.2f}</code></td><td>2 decimal places</td><td><code>76.50</code></td></tr>
@@ -324,7 +328,7 @@ elif marks &gt;= 60:
 else:
     grade = "C"
 print("Grade:", grade)     <span class="cm"># B</span></code></pre>
-<p><b>Tiers + independent bonus &mdash; the discount pattern from Lab 1.2:</b></p>
+<p><b>Tiers + an independent bonus &mdash; the tiered-discount pattern:</b></p>
 <pre class="code"><code>order_total, is_member = 7500, True
 if order_total &gt;= 10000:  discount_rate = 15
 elif order_total &gt;= 5000: discount_rate = 10
@@ -375,6 +379,7 @@ print(len(products))   <span class="cm"># 4</span></code></pre>
 print(products[:2])    <span class="cm"># from the start</span>
 print(products[2:])    <span class="cm"># to the end</span></code></pre>
 <p>Lists are <b>mutable</b>: <code>order[1] = 5</code> changes the item in place, and the membership test <code>"Bag" in products</code> tells you whether a value is present.</p>
+<p><b>The examiner&rsquo;s contrast:</b> a <b>bare index</b> past the end raises <code>IndexError</code> (<code>products[4]</code> on a 4-item list); a <b>slice</b> past the end does not &mdash; it is silently clipped (<code>products[1:9]</code> just returns what exists). One raises, one never does.</p>
 <table class="tbl">
   <tr><th>Method / tool</th><th>What it does</th><th>Example</th></tr>
   <tr><td><code>append(x)</code></td><td>add at the end</td><td><code>items.append("Bag")</code></td></tr>
@@ -440,7 +445,7 @@ orders.append({"customer": "Meena", "item": "Lamp", "qty": 1, "price": 650})</co
     <li>Try <code>orders["customer"]</code> &mdash; a list takes an integer, not a key (TypeError)</li>
   </ul></div>
 </div>
-<p>The <b>inventory</b> exercise shows the <b>accumulator pattern</b> on records: start <code>total_value = 0</code> before the loop, add <code>product["qty"] * product["price"]</code> inside it &mdash; one running total for the whole stock.</p>
+<p>The <b>accumulator pattern</b> on records: start <code>total_value = 0</code> before the loop, add <code>product["qty"] * product["price"]</code> inside it &mdash; one running total for the whole stock.</p>
 
 <h3 id="s24"><span class="tag">2.4</span> Tuples &amp; sets</h3>
 <table class="tbl">
@@ -520,9 +525,10 @@ print("Sold out")</code></pre>
 <ul>
   <li><b>break</b> &mdash; leave the loop immediately. Example: scan prices, <code>if price &gt; 1000: print(...); break</code> &mdash; no need to look further.</li>
   <li><b>continue</b> &mdash; skip the rest of this round, go to the next item. Example: <code>if price &lt; 100: continue</code> skips cheap items.</li>
-  <li><b>Repayment schedule pattern</b> (Lab 1.2): <code>while balance &gt; 0:</code> take a fixed monthly payment, floor the balance at 0 so a final partial payment never shows a negative.</li>
+  <li><b>Repayment schedule pattern</b>: <code>while balance &gt; 0:</code> take a fixed monthly payment, floor the balance at 0 so a final partial payment never shows a negative.</li>
   <li>Choosing: <b>known collection &rarr; <code>for</code>; condition &rarr; <code>while</code>.</b></li>
-  <li><b>Stuck in an infinite loop?</b> Press the <b>Stop</b> (■) button on the Colab cell, or Runtime &rarr; Interrupt execution (Ctrl+C when running a script). Never use <code>while True:</code> without a <code>break</code> you can actually reach.</li>
+  <li><b>The repeat-until-valid pattern:</b> <code>while True:</code> read the input, <code>if</code> it is valid: <code>break</code>. It is the only safe shape of <code>while True</code> &mdash; the <code>break</code> must be reachable whenever the input is correct.</li>
+  <li><b>Stuck in an infinite loop?</b> Press the <b>Stop</b> (■) button in your IDE/notebook, or <code>Ctrl + C</code> in a terminal. Never use <code>while True:</code> without a <code>break</code> you can actually reach.</li>
 </ul>
 
 <h3 id="s33"><span class="tag">3.3</span> Functions &mdash; write once, use many times</h3>
@@ -538,6 +544,7 @@ print(calculate_gst(2500, 5))     <span class="cm"># 125.0 &larr; rate given</sp
   <li><b>Default parameters</b> (<code>rate=18</code>) make arguments optional; positional arguments come in order.</li>
   <li><b>Functions call functions:</b> <code>invoice_total</code> can call <code>calculate_gst</code> inside it &mdash; compose small jobs into bigger ones.</li>
   <li>A function that only <b>does</b> something (<code>print</code>) is fine; one that should <b>give a value back</b> must <code>return</code> it.</li>
+  <li><b>Keyword calls:</b> <code>calculate_gst(amount=2500, rate=5)</code> names each argument &mdash; order no longer matters and the call explains itself. The usual exam shape is one required argument plus one defaulted: <code>def f(x, y=10):</code>.</li>
 </ul>
 <div class="callout warn"><div class="ttl">PRINT VS RETURN &mdash; THE CLASSIC TRAP</div>
 <pre class="code"><code>def gst_print(amount):
@@ -571,7 +578,7 @@ print(result_b + 100)            <span class="cm"># ... only the returned one yo
     subtotal = price * qty
     return subtotal * 1.18</code></pre></div>
 </div>
-<p>Both print <code>1180.0</code> for price 1000, qty 1. The clean-code <b>makeover exercise</b> in Lab 1.2 is exactly this: rewrite a working but ugly loop (single-letter names, magic <code>0.18</code> and <code>100</code>) into a function <code>total_gst(invoice_amounts)</code> with <code>GST_RATE</code> and <code>MIN_TAXABLE_AMOUNT</code> constants &mdash; <b>the output must stay the same</b>. Checklist: would a new teammate understand each name? Is every number a named constant? One job per function? 4-space indent throughout?</p>
+<p>Both print <code>1180.0</code> for price 1000, qty 1. The clean-code <b>makeover</b> is exactly this: rewrite a working but ugly loop (single-letter names, magic <code>0.18</code> and <code>100</code>) into a function <code>total_gst(invoice_amounts)</code> with <code>GST_RATE</code> and <code>MIN_TAXABLE_AMOUNT</code> constants &mdash; <b>the output must stay the same</b>. Checklist: would a new teammate understand each name? Is every number a named constant? One job per function? 4-space indent throughout?</p>
 
 <h3 id="s35"><span class="tag">3.5</span> Reading a traceback</h3>
 <p>When code breaks, Python prints a traceback. Read it <b>from the bottom up</b>:</p>
@@ -587,7 +594,7 @@ print(result_b + 100)            <span class="cm"># ... only the returned one yo
   <tr><td><b>ZeroDivisionError</b></td><td>dividing by zero</td><td>guard with <code>if denominator &gt; 0</code></td></tr>
   <tr><td><b>IndentationError</b></td><td>the block under <code>if</code>/<code>for</code>/<code>def</code> is not indented (or mixed tabs/spaces)</td><td>4 spaces, consistent</td></tr>
 </table>
-<p>This is also exactly the text you will hand to an AI assistant on the next slide &mdash; a traceback is a first-class tool, not an obstacle.</p>
+<p>This is also exactly the text you will hand to an AI coding assistant (3.6) &mdash; a traceback is a first-class tool, not an obstacle.</p>
 
 <h3 id="s36"><span class="tag">3.6</span> AI coding assistants (Copilot &middot; Claude &middot; Codex)</h3>
 <p>A good prompt is: <b>context + the exact error + what you tried</b>.</p>
@@ -596,7 +603,7 @@ print(result_b + 100)            <span class="cm"># ... only the returned one yo
   <li>Say what the code is <b>supposed to do</b>; ask it to <b>explain the error first, then fix it</b>. Example prompt: &ldquo;<code>inventory = {'Pen': 10}</code>. I want a safe lookup that gives 0 if the key is missing. Show the one line of code.&rdquo; &rarr; <code>inventory.get("Rocket", 0)</code>.</li>
   <li>For refactors: &ldquo;Refactor this into one well-named function with named constants and a docstring; keep the output identical.&rdquo; Then <b>run it and compare</b> &mdash; the assistant drafts, you check the work.</li>
   <li><b>Review every line it writes</b> &mdash; you stay responsible for the result.</li>
-  <li>Never paste private data into a public tool. Colab cannot run Copilot live: prompt in VS Code, paste the fixed code back into the notebook.</li>
+  <li>Never paste private data into a public tool.</li>
 </ul>
 
 <h3 id="s37"><span class="tag">3.7</span> The automation project &mdash; a daily sales report</h3>
@@ -625,12 +632,12 @@ for order in orders:
     print(f"{order['item']}: {amount}")
 print(f"Daily total: {total}")
 <span class="cm"># Pen: 50 / Book: 120 / Bag: 450 / Daily total: 620</span></code></pre>
-<p>The payoff of the design: <b>add a fourth order and re-run &mdash; the report updates with no other change</b>. The <b>homework</b> extends it: add 18% GST per line (or on the total) and print the grand total. The <b>Tutorial</b> notebook grows this into a multi-order invoice system with a discount rule, a daily sales summary, a <code>YOUR TURN</code> multi-file case and an auto-checker that grades your function.</p>
+<p>The payoff of the design: <b>add a fourth order and re-run &mdash; the report updates with no other change</b>. The <b>CO1 homework</b> extends it: add 18% GST per line and print the grand total (see the checklist at the end) &mdash; that extension is a natural apply-level exam question.</p>
 
 <h3 id="s38"><span class="tag">3.8</span> Building confidence from zero &mdash; four habits</h3>
 <div class="two">
-  <div class="box"><h4>1 &middot; TYPE IT YOURSELF</h4><p style="font-size:13px">Typing builds memory that copy-and-paste never will. Worked examples in the notebooks are there to read <em>and</em> retype.</p></div>
-  <div class="box"><h4>2 &middot; PREDICT, THEN RUN</h4><p style="font-size:13px">Guess the output first, then check yourself. The code-trace clinic in Practical 2 is this habit, formalised &mdash; it is also the skill that lets you verify an AI assistant&rsquo;s answer instead of trusting it.</p></div>
+  <div class="box"><h4>1 &middot; TYPE IT YOURSELF</h4><p style="font-size:13px">Typing builds memory that copy-and-paste never will. Retype every worked example on this page.</p></div>
+  <div class="box"><h4>2 &middot; PREDICT, THEN RUN</h4><p style="font-size:13px">Guess the output first, then check yourself. Output-trace questions are this habit, formalised &mdash; and it is also the skill that lets you verify an AI assistant&rsquo;s answer instead of trusting it.</p></div>
   <div class="box"><h4>3 &middot; READ THE ERROR</h4><p style="font-size:13px">The traceback names the line and the problem. Bottom-up: error name, then where, then the expression. Section 3.5 is the map.</p></div>
   <div class="box"><h4>4 &middot; START SMALL</h4><p style="font-size:13px">Get a tiny version working, then grow it &mdash; one item before many, one function before the report, the <code>pass</code> stub before the real body.</p></div>
 </div>
@@ -647,49 +654,29 @@ print(f"Daily total: {total}")
 </div>
 
 <!-- ============================================================ -->
-<h2 class="sec" id="labs"><span class="no">MAP</span> Labs &amp; Tutorial &mdash; where every idea gets exercised</h2>
-<p>Open the notebooks from <a href="co1-labs.html" style="color:var(--amber)">the Labs page</a>. The <b>Theory &amp; Practicals</b> notebook pairs each COI with its practical block; the <b>Tutorial</b> notebook is one long build.</p>
+<h2 class="sec" id="exam"><span class="no">EXAM</span> Exam focus &mdash; how CO1 theory is tested</h2>
+<p>CO1 is examined in the <b>in-semester (mid)</b> paper and re-tested in the <b>end-semester (final)</b> paper, which covers all six COs. The syllabus pins CO1 to Bloom level 3 (Apply) through three COIs &mdash; the table in &sect;00 is your question bank: every paper question comes from one of those three rows.</p>
 
-<h3>Practical 1 &mdash; GST invoices, paise math &amp; peak rates (COI-1)</h3>
+<h3>What each level asks you to do</h3>
 <table class="tbl">
-  <tr><th style="width:60px">#</th><th>Exercise</th><th>Idea it drills</th></tr>
-  <tr><td>1</td><td><b>Invoice calculator</b> &mdash; item, price, qty, 18% GST; <i>your turn:</i> 10% discount before GST</td><td>named variables, <code>*</code>/<code>/</code> arithmetic, <code>round(x, 2)</code>, <code>type()</code></td></tr>
-  <tr><td>2</td><td><b>Type detective</b> &mdash; form data arrives as text; <i>your turn:</i> clean <code>"1,250"</code> with <code>.replace(",", "")</code></td><td><code>int()</code>/<code>float()</code> casting, <code>==</code> comparison &rarr; bool, f-strings</td></tr>
-  <tr><td>3</td><td><b>Operators at work</b> &mdash; packing (<code>//</code> &amp; <code>%</code>), profit &amp; profit %, scholarship rule; <i>your turn:</i> free-delivery rule</td><td>whole division, remainder, profit formula, <code>and</code> / <code>or</code></td></tr>
-  <tr><td>4</td><td><b>Neat bill</b> &mdash; aligned columns; <i>your turn:</i> add a fourth item row</td><td>f-string format specs <code>&lt;12</code> <code>&gt;10,.2f</code></td></tr>
-  <tr><td>5</td><td><b>Paise math</b> &mdash; see a float total go wrong, fix it; <i>your turn:</i> round a receipt to paise</td><td>round-only-at-the-end, never <code>==</code> on money</td></tr>
-  <tr><td>6</td><td><b>Peak-rate pricing</b> &mdash; price by hour; <i>your turn:</i> three tiers (morning/day/evening)</td><td>tiered <code>if / elif / else</code>, most specific first</td></tr>
+  <tr><th style="width:100px">Level</th><th style="width:180px">Question type</th><th>Wording you will meet in the paper</th></tr>
+  <tr><td><b>COI-1</b><br>recall</td><td>Define &middot; identify &middot; state</td><td>&ldquo;State the four core data types with one business example each.&rdquo; &middot; &ldquo;Which of these names are illegal, and why?&rdquo; &middot; &ldquo;What does <code>17 // 5</code> print?&rdquo; &middot; &ldquo;Name the exception raised by <code>int("abc")</code>.&rdquo;</td></tr>
+  <tr><td><b>COI-2</b><br>understand</td><td>Trace &middot; explain &middot; predict</td><td>&ldquo;Predict the output of this snippet.&rdquo; (precedence, slices, <code>dict.get</code>, loops) &middot; &ldquo;Explain why this <code>while</code> loop never stops.&rdquo; &middot; &ldquo;Read this traceback: what is the error, which line, and how do you fix it?&rdquo;</td></tr>
+  <tr><td><b>COI-3</b><br>apply</td><td>Write &middot; modify &middot; automate</td><td>&ldquo;Write a program that applies a tiered discount and prints the amount to pay.&rdquo; &middot; &ldquo;Write a function that computes GST with a default rate.&rdquo; &middot; &ldquo;Modify this working loop so it also counts items above a limit.&rdquo; &middot; &ldquo;Rewrite this code with meaningful names and a named constant.&rdquo;</td></tr>
 </table>
 
-<h3>Practical 2 &mdash; code-trace clinic: lists, dictionaries &amp; records (COI-2)</h3>
-<table class="tbl">
-  <tr><th style="width:60px">#</th><th>Exercise</th><th>Idea it drills</th></tr>
-  <tr><td>1</td><td><b>Shopping list manager</b> &mdash; add, remove, sort, search a cart; <i>your turn:</i> <code>pop()</code> + reverse sort</td><td>list methods, slicing, <code>sorted()</code> vs <code>sort()</code>, <code>in</code></td></tr>
-  <tr><td>2</td><td><b>Price list with a dictionary</b> &mdash; total a cart by key lookup; <i>your turn:</i> safe <code>get()</code> then add the key</td><td>dict read/update/<code>del</code>, <code>.get()</code> defaults, first <code>for</code> loop</td></tr>
-  <tr><td>3</td><td><b>Inventory: list of dictionaries</b> &mdash; stock value of each product and total; <i>your turn:</i> build a name list with <code>append()</code></td><td><code>inventory[i]["key"]</code> two-step reads, accumulator</td></tr>
-  <tr><td>4</td><td><b>Unique customers</b> &mdash; repeat vs unique visitors; <i>your turn:</i> store-only customers</td><td><code>set()</code> dedup, <code>&amp; | -</code> set ops, <code>count()</code>, tuple unpacking</td></tr>
-  <tr><td>5</td><td><b>Code-trace clinic</b> &mdash; predict string slices, negative slices and <code>.get()</code> outputs before running; <i>your turn:</i> <code>stock[1:3]</code>, <code>stock[-1]</code></td><td>predict-then-run habit &mdash; the skill that lets you audit an AI&rsquo;s answer</td></tr>
-</table>
+<div class="callout"><div class="ttl">EXAM-DAY RULES</div>
+<ul>
+  <li><b>2-mark question:</b> one precise sentence, or one line of code plus its output. No paragraphs; run the code in your head before you write it.</li>
+  <li><b>5-mark question:</b> the full working code, the expected output, and one sentence naming the pattern (accumulator, tiered <code>if</code>, safe lookup&hellip;) &mdash; that last mark is for the explanation.</li>
+  <li><b>Traceback question:</b> answer in three parts &mdash; the error name, the line it points at, the fix. Reading bottom-up (&sect;3.5) is the whole technique.</li>
+  <li><b>Money question:</b> always finish with <code>round(x, 2)</code> and say why &mdash; paise.</li>
+  <li>An AI assistant is a <i>learning</i> tool; in the paper you must produce the same one-line fixes by hand. Know what <code>.get()</code>, <code>break</code> and <code>return</code> do before you ever ask a tool for them.</li>
+</ul></div>
 
-<h3>Practical 3 &mdash; Lab 1.2: discount slabs, accumulators &amp; billing functions (COI-3)</h3>
-<table class="tbl">
-  <tr><th style="width:60px">#</th><th>Exercise</th><th>Idea it drills</th></tr>
-  <tr><td>1</td><td><b>Discount decision maker</b> &mdash; tiered slabs + independent member bonus; <i>your turn:</i> delivery charge rule</td><td>tiered <code>if/elif</code> ladder, a <b>separate</b> <code>if</code> for an independent rule, f-string money</td></tr>
-  <tr><td>2</td><td><b>Loop workout</b> &mdash; weekly totals/average, best day, loan schedule, times table; <i>your turn:</i> count the days above 10,000</td><td>accumulator, best-so-far, <code>while</code> ending at a condition, <code>range()</code>, counter pattern</td></tr>
-  <tr><td>3</td><td><b>Build your own functions</b> &mdash; <code>calculate_gst</code>, <code>discount_rate_for</code>, <code>final_bill</code> composed together; <i>your turn:</i> <code>profit_percent(cost, selling)</code></td><td>one job per function, docstrings, functions calling functions, constants</td></tr>
-  <tr><td>4</td><td><b>Clean code makeover</b> &mdash; rewrite a working-but-ugly loop as a named function; <i>your turn:</i> <code>count_large_orders</code></td><td>the clean-code checklist from 3.4 &mdash; same output, readable names</td></tr>
-</table>
+<h3>How to use this page the night before</h3>
+<p>Every quick check in these notes is an exam-format item: output prediction (&sect;1.5, 2.4, 3.8), error spotting (&sect;1.1, 1.4, 2.1, 2.2), one-line fixes (&sect;1.3). The <b>practice paper</b> at the very end is the dress rehearsal: six 2-mark and six 5-mark questions with model answers &mdash; attempt each without looking, then fold it open. The <b>cheat sheets</b> are the last-two-hours page.</p>
 
-<h3>Tutorial notebook &mdash; build an invoice automation, step by step</h3>
-<ol>
-  <li><b>One order, one invoice</b> &mdash; the minimal version: variables + one calculation + a printed invoice.</li>
-  <li><b>All orders in one place</b> &mdash; the data becomes a list of dictionaries.</li>
-  <li><b>A discount rule</b> &mdash; one order through a tiered <code>if/elif</code>, then every order.</li>
-  <li><b>Invoices for every order</b> &mdash; loop + f-string formatting produces the full sheet.</li>
-  <li><b>Functions</b> &mdash; pull the discount logic and line maths into named, documented functions.</li>
-  <li><b>Daily sales summary</b> &mdash; totals, averages and the top-selling line from the whole dataset.</li>
-  <li><b>YOUR TURN + auto-checker</b> &mdash; a multi-file commission &amp; mess-queue case; you write the function, the auto-checker grades it. (The reference answers live only in the instructor&rsquo;s copy.)</li>
-</ol>
 
 <!-- ============================================================ -->
 <h2 class="sec" id="cheat"><span class="no">REF</span> Cheat sheets</h2>
@@ -740,7 +727,7 @@ else:                rate = 0</code></pre>
 
 <!-- ============================================================ -->
 <h2 class="sec" id="final"><span class="no">END</span> CO1 final checklist</h2>
-<p>Slide 32&rsquo;s &ldquo;I can now&hellip;&rdquo; &mdash; tick them off against your own code before CO2 starts:</p>
+<p>Slide 32&rsquo;s &ldquo;I can now&hellip;&rdquo; &mdash; tick every line before the mid paper; the <a href="#practice" style="color:var(--amber)">practice set</a> below is the test that proves it.</p>
 <ul>
   <li><input type="checkbox" style="accent-color:var(--amber);margin-right:8px;vertical-align:-1px"> Store and convert values with variables and data types (<code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>)</li>
   <li><input type="checkbox" style="accent-color:var(--amber);margin-right:8px;vertical-align:-1px"> Hold data in lists and dictionaries &mdash; including a list of dictionaries, read with <code>orders[i]["key"]</code></li>
@@ -750,6 +737,152 @@ else:                rate = 0</code></pre>
 </ul>
 <div class="callout"><div class="ttl">HOMEWORK</div>
 <p>Extend the daily sales report from Section 3.7: add 18% GST and print the grand total. If you get stuck, the prompt that unblocks it: &ldquo;I have a list of order dicts with qty and price. Add GST at 18% per line and print the grand total rounded to 2 decimals &mdash; keep my existing loop.&rdquo;</p></div>
+
+<!-- ============================================================ -->
+<h2 class="sec" id="practice"><span class="no">MOCK</span> Practice paper &mdash; six 2-mark, six 5-mark</h2>
+<p>Attempt each question without looking; fold the answer open only after you have written yours. 2-mark = one sentence or one line plus its output. 5-mark = working code + expected output + one line explaining the pattern.</p>
+
+<h3>Section A &middot; 2-mark questions</h3>
+
+<details class="qc"><summary><b>Q1.</b> What is dynamic typing in Python? Give one advantage and one risk.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p>Python decides a variable&rsquo;s type from its value at run time &mdash; no type declaration is written. Advantage: less boilerplate, faster prototyping. Risk: type mistakes surface only at run time (<code>"100" + 5</code> is a <code>TypeError</code>), not before the program runs.</p></div></details>
+
+<details class="qc"><summary><b>Q2.</b> Which of these names are legal &mdash; <code>1st_item</code>, <code>total_price</code>, <code>my price</code>, <code>class</code>, <code>is_paid</code>? Give the reason for each illegal one.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p><code>total_price</code> and <code>is_paid</code> are legal. <code>1st_item</code> starts with a digit (SyntaxError); <code>my price</code> contains a space (SyntaxError); <code>class</code> is a Python keyword (SyntaxError).</p></div></details>
+
+<details class="qc"><summary><b>Q3.</b> <code>int(7.9)</code> gives 7 but <code>round(7.9)</code> gives 8. Explain in one line.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p><code>int()</code> truncates &mdash; it cuts the decimal part; <code>round()</code> rounds to the nearest integer.</p></div></details>
+
+<details class="qc"><summary><b>Q4.</b> Why is <code>0.1 + 0.2 == 0.3</code> <code>False</code>? How should money be compared instead?</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p>Binary floating point cannot represent 0.1 or 0.2 exactly, so the sum is <code>0.30000000000000004</code>. Compare money with <code>round(x, 2)</code> (or a small tolerance) &mdash; never with <code>==</code>.</p></div></details>
+
+<details class="qc"><summary><b>Q5.</b> For <code>stock = ["Pen", "Book", "Bag", "Lamp"]</code>: what exception does <code>stock[4]</code> raise? What does <code>stock[1:5]</code> return, and why does it not raise?</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p><code>stock[4]</code> raises an <b>IndexError</b> &mdash; only indices 0&ndash;3 exist. <code>stock[1:5]</code> returns <code>['Book', 'Bag', 'Lamp']</code>: a slice is clipped to the end of the list; it never raises.</p></div></details>
+
+<details class="qc"><summary><b>Q6.</b> A dictionary is written <code>{"a": 1, "a": 2}</code>. What is its value, and what is the rule?</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<p><code>{'a': 2}</code> &mdash; keys must be unique; when a key repeats, the <b>last value silently wins</b> (no error is raised).</p></div></details>
+
+<h3>Section B &middot; 5-mark questions</h3>
+
+<details class="qc"><summary><b>Q1.</b> Write a program that takes an order total and a membership flag, applies a tiered discount (&ge;10000 &rarr; 15%, &ge;5000 &rarr; 10%, &ge;1000 &rarr; 5%, else 0%), gives members a further 2%, and prints the amount to pay rounded to 2 decimals. Show the output for total 7500, member <code>True</code>.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<pre class="code"><code>order_total = 7500
+is_member = True
+
+if order_total &gt;= 10000:
+    rate = 15
+elif order_total &gt;= 5000:
+    rate = 10
+elif order_total &gt;= 1000:
+    rate = 5
+else:
+    rate = 0
+if is_member:
+    rate += 2                       <span class="cm"># independent rule - a separate if</span>
+
+amount_to_pay = round(order_total * (100 - rate) / 100, 2)
+print(f"To pay: {amount_to_pay:,.2f}")    <span class="cm"># To pay: 6,600.00</span></code></pre>
+<p>What is tested: the tiered <code>if/elif</code> ladder with the <b>most specific tier first</b>, and a <b>separate</b> <code>if</code> for the member bonus &mdash; an independent rule that adds to whatever slab was chosen, not an <code>elif</code>.</p></div></details>
+
+<details class="qc"><summary><b>Q2.</b> Write a function <code>calculate_gst(amount, rate=18)</code> that returns the GST, and a second function <code>final_bill(total, is_member=False)</code> that applies a 10% discount for totals &ge; 5000 (plus 2% for members), then adds GST on the discounted amount. Call both and show the outputs.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<pre class="code"><code>def calculate_gst(amount, rate=18):
+    <span class="cm">"""Return the GST on an amount (default rate 18%)."""</span>
+    return amount * rate / 100
+
+def final_bill(total, is_member=False):
+    <span class="cm">"""Return the amount payable after discount and GST."""</span>
+    rate = 0
+    if total &gt;= 5000:
+        rate = 10
+    if is_member:
+        rate += 2
+    discounted = total * (100 - rate) / 100
+    return round(discounted + calculate_gst(discounted), 2)
+
+print(calculate_gst(2500))        <span class="cm"># 450.0 &larr; default rate used</span>
+print(final_bill(7500, True))     <span class="cm"># 12% off -&gt; 6600.0, +1188.0 GST -&gt; 7788.0</span></code></pre>
+<p>What is tested: <code>def</code> with a default parameter, <code>return</code> (not <code>print</code>), and one function calling another.</p></div></details>
+
+<details class="qc"><summary><b>Q3.</b> Predict the output of the snippet below and explain each line in one sentence.</summary>
+<div class="ans"><div class="lbl">SNIPPET</div>
+<pre class="code"><code>print(10 + 2 * 3 ** 2)
+print(17 // 5, 17 % 5)
+s = "KLU"
+print(s * 2, len(s))
+d = {"a": 1, "a": 2}
+print(d)</code></pre>
+<div class="lbl">MODEL ANSWER</div>
+<ul>
+  <li><code>28</code> &mdash; power first (<code>3**2 = 9</code>), then multiplication (<code>2 &times; 9 = 18</code>), then addition.</li>
+  <li><code>3 2</code> &mdash; whole-number division and remainder of 17 &divide; 5.</li>
+  <li><code>KLULKU 3</code> &mdash; <code>*</code> repeats a string; <code>len()</code> counts the characters of the original.</li>
+  <li><code>{'a': 2}</code> &mdash; duplicate key; the last value silently wins.</li>
+</ul></div></details>
+
+<details class="qc"><summary><b>Q4.</b> Given a list of order dictionaries (keys <code>item</code>, <code>qty</code>, <code>price</code>), write code that prints each line total and the grand total, then also counts how many items are priced above 100. Name the two loop patterns you used.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<pre class="code"><code>orders = [
+    {"item": "Pen",  "qty": 10, "price": 5},
+    {"item": "Book", "qty": 2,  "price": 60},
+    {"item": "Bag",  "qty": 1,  "price": 450},
+]
+total = 0
+count = 0
+for order in orders:
+    amount = order["qty"] * order["price"]
+    total += amount
+    print(f'{order["item"]}: {amount}')
+    if order["price"] &gt; 100:
+        count += 1
+print(f"Grand total: {total}")      <span class="cm"># 620  (50 + 120 + 450)</span>
+print("Priced above 100:", count)   <span class="cm"># 1  (the Bag)</span></code></pre>
+<p>Patterns named: the <b>accumulator</b> (<code>total</code>, started before the loop, never reset inside it) and the <b>counter</b> (<code>count</code>, incremented inside an <code>if</code>).</p></div></details>
+
+<details class="qc"><summary><b>Q5.</b> Write a <code>while</code> loop that prints a repayment schedule: a loan of 50000 repaid at 12000 per month, the final partial payment floored at 0. Then explain (i) what happens if the update line is removed, and (ii) the difference between <code>break</code> and <code>continue</code>.</summary>
+<div class="ans"><div class="lbl">MODEL ANSWER</div>
+<pre class="code"><code>balance = 50000
+month = 0
+while balance &gt; 0:
+    month += 1
+    balance -= 12000
+    if balance &lt; 0:
+        balance = 0                  <span class="cm"># floor - a final partial payment</span>
+    print(f"Month {month}: balance {balance}")
+<span class="cm"># Month 1: 38000 / Month 2: 26000 / Month 3: 14000 / Month 4: 2000 / Month 5: 0</span></code></pre>
+<ul>
+  <li>(i) Without <code>balance -= 12000</code> the condition stays True forever &mdash; an <b>infinite loop</b>. Something inside the loop must change the condition.</li>
+  <li>(ii) <code>break</code> leaves the loop immediately; <code>continue</code> skips only the rest of this round and moves on to the next item.</li>
+</ul></div></details>
+
+<details class="qc"><summary><b>Q6.</b> The snippet below works but is unreadable. Rewrite it as a named function with named constants and a docstring &mdash; the output must stay identical. Name the clean-code habits you applied.</summary>
+<div class="ans"><div class="lbl">BEFORE</div>
+<pre class="code"><code>x = [250, 1200, 80, 4500]
+t = 0
+for i in x:
+  if i &gt; 100:
+    t = t + i * 0.18
+print(round(t, 2))</code></pre>
+<div class="lbl">MODEL ANSWER</div>
+<pre class="code"><code>GST_RATE = 0.18
+MIN_TAXABLE = 100
+
+def total_gst(invoice_amounts):
+    <span class="cm">"""Return the total GST on invoices above the taxable minimum."""</span>
+    gst = 0
+    for amount in invoice_amounts:
+        if amount &gt; MIN_TAXABLE:
+            gst += amount * GST_RATE
+    return gst
+
+print(round(total_gst([250, 1200, 80, 4500]), 2))   <span class="cm"># 1071.0 - unchanged</span></code></pre>
+<p>Habits applied: meaningful names (<code>x</code> &rarr; <code>invoice_amounts</code>, <code>t</code> &rarr; <code>gst</code>), named constants replacing the magic numbers <code>0.18</code> and <code>100</code>, a one-job function with a docstring, and consistent 4-space indentation &mdash; output identical.</p></div></details>
 
 <footer><b>Faculty Instructors:</b> Dr. Subhodeep Mukherjee &middot; Dr. A Udaya Shankar &nbsp;&middot;&nbsp; <b>Course Coordinator:</b> Uday Kiran Kalyanam &middot; Dept of MBA (KLVZA)</footer>
 </div></div>
